@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Birthday Invitation</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+      background: url('bday.jpg') repeat;
+      background-size: contain;
+      overflow: hidden;
+    }
+
+    .invitation {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.75);
+      padding: 30px 50px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
+    .invitation h1 {
+      margin: 0 0 10px;
+      font-size: 36px;
+    }
+
+    .invitation p {
+      font-size: 18px;
+      margin: 5px 0;
+    }
+
+    #playBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff69b4;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+    }
+
+    #playBtn:hover {
+      background-color: #ff85c1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="invitation">
+    <h1>You're Invited!</h1>
+    <p>Come celebrate a very special birthday 🎉</p>
+    <p><strong>When:</strong> April 15, 2025 @ 6:00 PM</p>
+    <p><strong>Where:</strong> 123 Party Lane, Fun City</p>
+    <p>Bring your party spirit and good vibes!</p>
+    <button id="playBtn">▶️ Play Music</button>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="https://media.vocaroo.com/mp3/13NbYeJGFNap" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const playBtn = document.getElementById('playBtn');
+    const bgMusic = document.getElementById('bgMusic');
+
+    playBtn.addEventListener('click', () => {
+      bgMusic.play().then(() => {
+        playBtn.style.display = 'none'; // Hide button after click
+      }).catch(err => {
+        alert('Audio playback failed. Try again!');
+        console.error(err);
+      });
+    });
+  </script>
+
+</body>
+</html>
